@@ -36,10 +36,9 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	# Update the sources.list file with the fastest mirror
 	sudo sed -i "s|http://archive.ubuntu.com/ubuntu/|$mirror|g" /etc/apt/sources.list
 
-# Update the package list
-sudo apt-get update
-	# Update the package lists
-	sudo apt update                              
+	# Update the package list
+	sudo apt-get update
+	                       
 else
         echo "skipped mirrors setup"
 fi 
