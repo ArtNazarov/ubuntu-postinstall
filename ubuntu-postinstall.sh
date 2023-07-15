@@ -752,7 +752,7 @@ if [[ $input == "Y" || $input == "y" ]]; then
 
 		echo "Installing wine"
 		
-		sudo pacman -Sy cabextract
+		sudo apt-get install -y cabextract
 		
 		sudo apt -y install wine
 
@@ -763,10 +763,10 @@ if [[ $input == "Y" || $input == "y" ]]; then
 
 		wineboot -u
 		wget https://dl.winehq.org/wine/wine-mono/7.0.0/wine-mono-7.0.0-x86.tar.xz
-tar xvf wine-mono-7.0.0-x86.tar.xz
+		tar xvf wine-mono-7.0.0-x86.tar.xz
 
-	wget https://dl.winehq.org/wine/wine-gecko/2.47.1/wine-gecko-2.47.1-x86.msi
-	wine msiexec /i wine-gecko-2.47.1-x86.msi
+		wget https://dl.winehq.org/wine/wine-gecko/2.47.1/wine-gecko-2.47.1-x86.msi
+		wine msiexec /i wine-gecko-2.47.1-x86.msi
 		./winetricks
 
 		chown $USER:$USER -R /home/artem/.wine
@@ -931,4 +931,4 @@ else
         echo "skipped trim switching"
 fi
 cd -
-# --------------------------
+# -----------------------
