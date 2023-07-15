@@ -1,6 +1,5 @@
-#!/bin/bash
-echo "Ubuntu post install script"
-echo "author: artem@nazarow.ru, 2023"
+ echo "Ubuntu post install script"
+ echo "author: artem@nazarow.ru, 2023"
  
  
 # ---------- KEYS  -----------
@@ -27,13 +26,20 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	# Update the mirror list
 	sudo apt update
 	# Install the netselect tool
-	sudo apt install netselect-apt -y
+	wget http://ftp.us.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-29_amd64.deb
 	# Run netselect-apt to find the fastest mirror
-	sudo netselect-apt
+	sudo dpkg -i netselect_0.3.ds1-29_amd64.deb
+	 
+	# Run netselect to find the fastest mirror
+	mirror=$(sudo netselect -s 20 -t 40 $(wget -qO - mirrors.ubuntu.com/mirrors.txt) | awk 'NR==2{print $2}')
+
 	# Update the sources.list file with the fastest mirror
-	sudo cp sources.list /etc/apt/sources.list
+	sudo sed -i "s|http://archive.ubuntu.com/ubuntu/|$mirror|g" /etc/apt/sources.list
+
+# Update the package list
+sudo apt-get update
 	# Update the package lists
-	sudo apt update                     
+	sudo apt update                              
 else
         echo "skipped mirrors setup"
 fi 
