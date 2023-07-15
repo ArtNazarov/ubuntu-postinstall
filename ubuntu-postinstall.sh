@@ -620,7 +620,8 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	
 	sudo add-apt-repository ppa:ubuntu-lazarus/ppa
 	sudo apt-get update
-	sudo apt-get install lazarus-qt
+	sudo apt-get install -y lazarus-ide-qt5
+
 
 	sudo apt install software-properties-common
 	sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-jammy
