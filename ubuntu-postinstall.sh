@@ -595,21 +595,20 @@ echo "Confirm [Y,n]"
 read input
 if [[ $input == "Y" || $input == "y" ]]; then
         echo "begin install developer tools"
-	 # Download the latest deb file for NetBeans
-	wget $(curl -s https://netbeans.apache.org/download/nb15/ | grep -o -m 1 'https://.*\.deb')
-
-	# Install the Debian package
-	sudo dpkg -i apache-netbeans_*.deb
+	 
+	sudo apt install default-jdk
+	sudo apt install netbeans
+	 
+	 
 
 	# If there are any missing dependencies, run:
 	sudo apt-get install -f
 	
 	
-	# Download OSS Code
-	wget https://az764295.vo.msecnd.net/stable/2b9aebd5354a3629c3aba0a5f5df49f43d6689f8/code_1.57.1-1623937018_amd64.deb
-
-	# Install OSS Code
-	sudo dpkg -i code_1.57.1-1623937018_amd64.deb
+	sudo apt install software-properties-common apt-transport-https wget
+	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+	sudo apt install code
 
 	# If there are any missing dependencies, run:
 	sudo apt-get install -f
@@ -621,9 +620,11 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	
 	sudo add-apt-repository ppa:ubuntu-lazarus/ppa
 	sudo apt-get update
-	sudo apt-get install lazarus-q
-	
-	sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-focal
+	sudo apt-get install lazarus-qt
+
+	sudo apt install software-properties-common
+	sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-jammy
+	# sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-focal
 	sudo apt-get update
 	sudo apt-get install qt515creator
 	
