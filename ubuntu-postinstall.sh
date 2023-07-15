@@ -36,9 +36,10 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	# Update the sources.list file with the fastest mirror
 	sudo sed -i "s|http://archive.ubuntu.com/ubuntu/|$mirror|g" /etc/apt/sources.list
 
-	# Update the package list
-	sudo apt-get update
-	                       
+# Update the package list
+sudo apt-get update
+	# Update the package lists
+	sudo apt update                              
 else
         echo "skipped mirrors setup"
 fi 
@@ -240,24 +241,6 @@ if [[ $input == "Y" || $input == "y" ]]; then
 else
         echo "skipped grub update"
 fi
-
-
-
-
-
-# ---------- MESA -----------
-
-echo "INSTALL MESA? [Y/N]?"
-echo "Confirm [Y,n]"
-read input
-if [[ $input == "Y" || $input == "y" ]]; then
-        echo "begin mesa installation"
-	sudo pacman -S mesa lib32-mesa
-else
-        echo "skipped mesa installation"
-fi
-
-# --------------------------
 
 
 # ---------- VULKAN -----------
