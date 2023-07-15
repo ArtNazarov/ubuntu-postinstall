@@ -671,7 +671,7 @@ echo "Confirm [Y,n]"
 read input
 if [[ $input == "Y" || $input == "y" ]]; then
 		flatpak install fsearch
-		flatpak install --user netbeans
+		flatpak install --user org.apache.netbeans
 else
         echo "skipped flatpak soft install"
 fi
@@ -683,7 +683,7 @@ fi
 
 # ---------- SNAP -----------
 
-echo "INSTALL PAMAC (GUI FOR PACMAN)? [Y/N]?"
+echo "INSTALL SNAPD ? [Y/N]?"
 echo "Confirm [Y,n]"
 read input
 if [[ $input == "Y" || $input == "y" ]]; then
