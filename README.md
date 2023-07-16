@@ -14,3 +14,5 @@ chmod +x ubuntu-postinstall.sh
 ```
 
 This is Ubuntu variant of https://github.com/ArtNazarov/arch-postinstall/blob/main/arch-postinstall.sh
+
+For rpm based distributions like Fedora use: https://github.com/ArtNazarov/rpm-dnf-postinstall
