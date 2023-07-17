@@ -933,3 +933,9 @@ else
 fi
 cd -
 # -----------------------
+
+# keyboard switch
+localectl set-x11-keymap --no-convert us,ru pc105 "" grp:alt_shift_toggle
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+
