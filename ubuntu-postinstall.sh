@@ -627,7 +627,7 @@ if [[ $input == "Y" || $input == "y" ]]; then
 	sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-jammy
 	# sudo add-apt-repository ppa:beineri/opt-qt-5.15.2-focal
 	sudo apt-get update
-	sudo apt-get install qt515creator
+	sudo apt-get install qtcreator
 	
 	sudo add-apt-repository multiverse && sudo apt-get update
 	sudo apt-get install virtualbox
